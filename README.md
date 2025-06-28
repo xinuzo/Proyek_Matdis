@@ -1,6 +1,8 @@
-# Visualisasi Algoritma Minimum Spanning Tree (MST) pada 38 Provinsi di Indonesia
+# Proyek Matematika Diskret Closure Relasi dan Minimum Spanning Tree
 
-Proyek ini bertujuan untuk memvisualisasikan proses pembentukan **Minimum Spanning Tree (MST)** menggunakan **Algoritma Prim** dan **Algoritma Kruskal**. Studi kasus yang digunakan adalah membuat jaringan konektivitas minimum antar ibu kota provinsi di seluruh Indonesia.
+Proyek ini bertujuan untuk:
+- Mengimplemnetasikan algoritma untuk memperoleh matriks **closure** dari suatu relasi
+- Memvisualisasikan proses pembentukan **Minimum Spanning Tree (MST)** menggunakan **Algoritma Prim** dan **Algoritma Kruskal** dengan membuat jaringan konektivitas minimum antar ibu kota provinsi di seluruh Indonesia
 
 Program ini akan mengambil data geografis provinsi di Indonesia, menghitung jarak antar ibu kota provinsi menggunakan rumus Haversine, dan kemudian membangun MST. Hasil dari kedua algoritma divisualisasikan sebagai animasi interaktif di atas peta menggunakan `folium`, yang kemudian disimpan sebagai file HTML.
 

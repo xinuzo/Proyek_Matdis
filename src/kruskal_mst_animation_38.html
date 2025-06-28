@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2f79d94235c0c90fb1969cf0ff361ec5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.css"/>
+</head>
+<body>
+    
+    <h3 align="center" style="font-size:16px"><b>Proses Pembentukan MST (38 Provinsi) - Algoritma Kruskal</b></h3>
+    
+            <div class="folium-map" id="map_2f79d94235c0c90fb1969cf0ff361ec5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2f79d94235c0c90fb1969cf0ff361ec5 = L.map(
+                "map_2f79d94235c0c90fb1969cf0ff361ec5",
+                {
+                    center: [-2.5489, 118.0149],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_75cb4eaacafc1cce9d933e57fd23ec70 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_75cb4eaacafc1cce9d933e57fd23ec70.addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var marker_0a06d93bb527c71eb44e5b2b4cc5ea45 = L.marker(
+                [1.354062287866734, 116.38401489149791],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_3c7445090d4903cb5792b511b2bfe741 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_712a15ed51c165d56d24ac96409734a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_19709238414a8ad4bcdc3741f77dd590 = $(`<div id="html_19709238414a8ad4bcdc3741f77dd590" style="width: 100.0%; height: 100.0%;"><strong>Kalimantan Timur</strong></div>`)[0];
+                popup_712a15ed51c165d56d24ac96409734a5.setContent(html_19709238414a8ad4bcdc3741f77dd590);
+            
+        
+
+        marker_0a06d93bb527c71eb44e5b2b4cc5ea45.bindPopup(popup_712a15ed51c165d56d24ac96409734a5)
+        ;
+
+        
+    
+    
+            marker_0a06d93bb527c71eb44e5b2b4cc5ea45.bindTooltip(
+                `<div>
+                     Kalimantan Timur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0a06d93bb527c71eb44e5b2b4cc5ea45.setIcon(icon_3c7445090d4903cb5792b511b2bfe741);
+            
+    
+            var marker_8db8464b160b7b63cd4661dc14ac8a57 = L.marker(
+                [-9.254079190711654, 122.18371185030412],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_b5f1fa5aefcf0fe4d4f0b4582e88fa37 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9432f8add6ebfebcb34ccc3c9981c111 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_22eabcd1e8f241fd9a1969f312de874d = $(`<div id="html_22eabcd1e8f241fd9a1969f312de874d" style="width: 100.0%; height: 100.0%;"><strong>Nusa Tenggara Timur</strong></div>`)[0];
+                popup_9432f8add6ebfebcb34ccc3c9981c111.setContent(html_22eabcd1e8f241fd9a1969f312de874d);
+            
+        
+
+        marker_8db8464b160b7b63cd4661dc14ac8a57.bindPopup(popup_9432f8add6ebfebcb34ccc3c9981c111)
+        ;
+
+        
+    
+    
+            marker_8db8464b160b7b63cd4661dc14ac8a57.bindTooltip(
+                `<div>
+                     Nusa Tenggara Timur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8db8464b160b7b63cd4661dc14ac8a57.setIcon(icon_b5f1fa5aefcf0fe4d4f0b4582e88fa37);
+            
+    
+            var marker_0b750641ad4f122c4c7282bcebee7acd = L.marker(
+                [-0.09496007217867572, 111.15448220911144],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_9ff77afd955249f80051f58ad10c10ef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d93311ef00b5b33edf3b23baa9bc6ea4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca1b99818490de2cdd1c27803078a49e = $(`<div id="html_ca1b99818490de2cdd1c27803078a49e" style="width: 100.0%; height: 100.0%;"><strong>Kalimantan Barat</strong></div>`)[0];
+                popup_d93311ef00b5b33edf3b23baa9bc6ea4.setContent(html_ca1b99818490de2cdd1c27803078a49e);
+            
+        
+
+        marker_0b750641ad4f122c4c7282bcebee7acd.bindPopup(popup_d93311ef00b5b33edf3b23baa9bc6ea4)
+        ;
+
+        
+    
+    
+            marker_0b750641ad4f122c4c7282bcebee7acd.bindTooltip(
+                `<div>
+                     Kalimantan Barat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b750641ad4f122c4c7282bcebee7acd.setIcon(icon_9ff77afd955249f80051f58ad10c10ef);
+            
+    
+            var marker_aa623e84cd615d860e6581ceda8bed97 = L.marker(
+                [-4.64056019171701, 138.65164524996223],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_1a265f6f100fd59fdef7ae4b10608a5f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_76421a4852729161f8b558220d58c023 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f270eed2bba15f22241374d3f05da8ae = $(`<div id="html_f270eed2bba15f22241374d3f05da8ae" style="width: 100.0%; height: 100.0%;"><strong>Papua</strong></div>`)[0];
+                popup_76421a4852729161f8b558220d58c023.setContent(html_f270eed2bba15f22241374d3f05da8ae);
+            
+        
+
+        marker_aa623e84cd615d860e6581ceda8bed97.bindPopup(popup_76421a4852729161f8b558220d58c023)
+        ;
+
+        
+    
+    
+            marker_aa623e84cd615d860e6581ceda8bed97.bindTooltip(
+                `<div>
+                     Papua
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aa623e84cd615d860e6581ceda8bed97.setIcon(icon_1a265f6f100fd59fdef7ae4b10608a5f);
+            
+    
+            var marker_d0ecf3a278bbdf260f661baefdc3334e = L.marker(
+                [-7.729981439366027, 112.73750774274768],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_312558441d72bc0ad6a61bbf00ec68b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f89b41b9fe98835e2ba7d053e421f9d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b70aebbf6d87970d6ed6df4b32c03827 = $(`<div id="html_b70aebbf6d87970d6ed6df4b32c03827" style="width: 100.0%; height: 100.0%;"><strong>Jawa Timur</strong></div>`)[0];
+                popup_3f89b41b9fe98835e2ba7d053e421f9d.setContent(html_b70aebbf6d87970d6ed6df4b32c03827);
+            
+        
+
+        marker_d0ecf3a278bbdf260f661baefdc3334e.bindPopup(popup_3f89b41b9fe98835e2ba7d053e421f9d)
+        ;
+
+        
+    
+    
+            marker_d0ecf3a278bbdf260f661baefdc3334e.bindTooltip(
+                `<div>
+                     Jawa Timur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d0ecf3a278bbdf260f661baefdc3334e.setIcon(icon_312558441d72bc0ad6a61bbf00ec68b2);
+            
+    
+            var marker_c185d8af2dcc4630e0e6a2fc135231eb = L.marker(
+                [-4.6940437525958565, 129.75575836024476],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_9ac1b63580ff8174f82b5e38c66d932c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dd1300a69b1cae76856b46116808b218 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2fc0be83455ba416c928ba0c2d912c89 = $(`<div id="html_2fc0be83455ba416c928ba0c2d912c89" style="width: 100.0%; height: 100.0%;"><strong>Maluku</strong></div>`)[0];
+                popup_dd1300a69b1cae76856b46116808b218.setContent(html_2fc0be83455ba416c928ba0c2d912c89);
+            
+        
+
+        marker_c185d8af2dcc4630e0e6a2fc135231eb.bindPopup(popup_dd1300a69b1cae76856b46116808b218)
+        ;
+
+        
+    
+    
+            marker_c185d8af2dcc4630e0e6a2fc135231eb.bindTooltip(
+                `<div>
+                     Maluku
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c185d8af2dcc4630e0e6a2fc135231eb.setIcon(icon_9ac1b63580ff8174f82b5e38c66d932c);
+            
+    
+            var marker_f348fd007936a5d45b51dfa894d0478d = L.marker(
+                [-8.606958453999232, 117.50027747747866],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_98cdd05f31617d01f3912aa4ef614ad7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_020f1d590896c01f6a1af6cc73d42e29 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44040bb16fc78d9400652e80e53aecdc = $(`<div id="html_44040bb16fc78d9400652e80e53aecdc" style="width: 100.0%; height: 100.0%;"><strong>Nusa Tenggara Barat</strong></div>`)[0];
+                popup_020f1d590896c01f6a1af6cc73d42e29.setContent(html_44040bb16fc78d9400652e80e53aecdc);
+            
+        
+
+        marker_f348fd007936a5d45b51dfa894d0478d.bindPopup(popup_020f1d590896c01f6a1af6cc73d42e29)
+        ;
+
+        
+    
+    
+            marker_f348fd007936a5d45b51dfa894d0478d.bindTooltip(
+                `<div>
+                     Nusa Tenggara Barat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f348fd007936a5d45b51dfa894d0478d.setIcon(icon_98cdd05f31617d01f3912aa4ef614ad7);
+            
+    
+            var marker_026428246d9e4e9202b81bec646a4239 = L.marker(
+                [-3.661945786029538, 120.1778352640059],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_62a9109626a8570a467e2f3d09d9f5f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db84979449cd70ebd9297860fbc006e7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_75d04d6b20dda8c13d8f149a516d6bfd = $(`<div id="html_75d04d6b20dda8c13d8f149a516d6bfd" style="width: 100.0%; height: 100.0%;"><strong>Sulawesi Selatan</strong></div>`)[0];
+                popup_db84979449cd70ebd9297860fbc006e7.setContent(html_75d04d6b20dda8c13d8f149a516d6bfd);
+            
+        
+
+        marker_026428246d9e4e9202b81bec646a4239.bindPopup(popup_db84979449cd70ebd9297860fbc006e7)
+        ;
+
+        
+    
+    
+            marker_026428246d9e4e9202b81bec646a4239.bindTooltip(
+                `<div>
+                     Sulawesi Selatan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_026428246d9e4e9202b81bec646a4239.setIcon(icon_62a9109626a8570a467e2f3d09d9f5f9);
+            
+    
+            var marker_b20c70de66555f36e817813db7deda0d = L.marker(
+                [-7.270040304574821, 110.21106245345051],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_16685cf59c113ca1de0d6686db836cb9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fc70e8f1c1e1d72978322c5b0f20e4c7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10572994c5e1fcf68f2bcddda336e528 = $(`<div id="html_10572994c5e1fcf68f2bcddda336e528" style="width: 100.0%; height: 100.0%;"><strong>Jawa Tengah</strong></div>`)[0];
+                popup_fc70e8f1c1e1d72978322c5b0f20e4c7.setContent(html_10572994c5e1fcf68f2bcddda336e528);
+            
+        
+
+        marker_b20c70de66555f36e817813db7deda0d.bindPopup(popup_fc70e8f1c1e1d72978322c5b0f20e4c7)
+        ;
+
+        
+    
+    
+            marker_b20c70de66555f36e817813db7deda0d.bindTooltip(
+                `<div>
+                     Jawa Tengah
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b20c70de66555f36e817813db7deda0d.setIcon(icon_16685cf59c113ca1de0d6686db836cb9);
+            
+    
+            var marker_afb415b37619d6c90e2bd1ee5e2ba849 = L.marker(
+                [-6.9230683180489505, 107.61031064977414],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_494df13108e972a623ba304c103b287d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5911826b6b346099c938df881dcb7b5c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7355be590bce5e479886038fe72c6230 = $(`<div id="html_7355be590bce5e479886038fe72c6230" style="width: 100.0%; height: 100.0%;"><strong>Jawa Barat</strong></div>`)[0];
+                popup_5911826b6b346099c938df881dcb7b5c.setContent(html_7355be590bce5e479886038fe72c6230);
+            
+        
+
+        marker_afb415b37619d6c90e2bd1ee5e2ba849.bindPopup(popup_5911826b6b346099c938df881dcb7b5c)
+        ;
+
+        
+    
+    
+            marker_afb415b37619d6c90e2bd1ee5e2ba849.bindTooltip(
+                `<div>
+                     Jawa Barat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_afb415b37619d6c90e2bd1ee5e2ba849.setIcon(icon_494df13108e972a623ba304c103b287d);
+            
+    
+            var marker_adb06c261ee38c3fec6a78b0c2bab9b0 = L.marker(
+                [-6.2092097497832714, 106.85000742656801],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_0b8064d50c397732188d48a73584bfd3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_00fc729afa8616ba008bc2a83f4aa5ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d407c933ab6febd4f911a18c2620d63a = $(`<div id="html_d407c933ab6febd4f911a18c2620d63a" style="width: 100.0%; height: 100.0%;"><strong>Jakarta Raya</strong></div>`)[0];
+                popup_00fc729afa8616ba008bc2a83f4aa5ca.setContent(html_d407c933ab6febd4f911a18c2620d63a);
+            
+        
+
+        marker_adb06c261ee38c3fec6a78b0c2bab9b0.bindPopup(popup_00fc729afa8616ba008bc2a83f4aa5ca)
+        ;
+
+        
+    
+    
+            marker_adb06c261ee38c3fec6a78b0c2bab9b0.bindTooltip(
+                `<div>
+                     Jakarta Raya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_adb06c261ee38c3fec6a78b0c2bab9b0.setIcon(icon_0b8064d50c397732188d48a73584bfd3);
+            
+    
+            var marker_8ddb4a98ee506014972f9cd5cbc620c2 = L.marker(
+                [-6.4527747142159075, 106.11427042056637],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_2ab2abff4199d60acd2397960a8f2aa0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ec58ead8c8a8fc2c5fb5f5bf4fed266c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd3c238991035b12d848f3abbbebd2d4 = $(`<div id="html_cd3c238991035b12d848f3abbbebd2d4" style="width: 100.0%; height: 100.0%;"><strong>Banten</strong></div>`)[0];
+                popup_ec58ead8c8a8fc2c5fb5f5bf4fed266c.setContent(html_cd3c238991035b12d848f3abbbebd2d4);
+            
+        
+
+        marker_8ddb4a98ee506014972f9cd5cbc620c2.bindPopup(popup_ec58ead8c8a8fc2c5fb5f5bf4fed266c)
+        ;
+
+        
+    
+    
+            marker_8ddb4a98ee506014972f9cd5cbc620c2.bindTooltip(
+                `<div>
+                     Banten
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8ddb4a98ee506014972f9cd5cbc620c2.setIcon(icon_2ab2abff4199d60acd2397960a8f2aa0);
+            
+    
+            var marker_2db29e643ca8084c1213436c9122b50f = L.marker(
+                [-7.9081076818113765, 110.45773333516406],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_8174f1b0761027c548b9a7e18f54ad6f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8480984c65abd2b7ba44762af45bbcb4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_55c650558026d7d3a14e0a68388a0a56 = $(`<div id="html_55c650558026d7d3a14e0a68388a0a56" style="width: 100.0%; height: 100.0%;"><strong>Yogyakarta</strong></div>`)[0];
+                popup_8480984c65abd2b7ba44762af45bbcb4.setContent(html_55c650558026d7d3a14e0a68388a0a56);
+            
+        
+
+        marker_2db29e643ca8084c1213436c9122b50f.bindPopup(popup_8480984c65abd2b7ba44762af45bbcb4)
+        ;
+
+        
+    
+    
+            marker_2db29e643ca8084c1213436c9122b50f.bindTooltip(
+                `<div>
+                     Yogyakarta
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2db29e643ca8084c1213436c9122b50f.setIcon(icon_8174f1b0761027c548b9a7e18f54ad6f);
+            
+    
+            var marker_6daa9ebf1e86d741fb0dc95357c9377b = L.marker(
+                [-4.128536051936185, 122.07771740626224],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_42243f20105187fcf3a4f29f91b39a6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bb1ec497ebb0c24483cd5b31c501af78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1d5776d4209e73fa69387771d8d4376 = $(`<div id="html_a1d5776d4209e73fa69387771d8d4376" style="width: 100.0%; height: 100.0%;"><strong>Sulawesi Tenggara</strong></div>`)[0];
+                popup_bb1ec497ebb0c24483cd5b31c501af78.setContent(html_a1d5776d4209e73fa69387771d8d4376);
+            
+        
+
+        marker_6daa9ebf1e86d741fb0dc95357c9377b.bindPopup(popup_bb1ec497ebb0c24483cd5b31c501af78)
+        ;
+
+        
+    
+    
+            marker_6daa9ebf1e86d741fb0dc95357c9377b.bindTooltip(
+                `<div>
+                     Sulawesi Tenggara
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6daa9ebf1e86d741fb0dc95357c9377b.setIcon(icon_42243f20105187fcf3a4f29f91b39a6d);
+            
+    
+            var marker_dead85e2c336d3a18e82c7dc14cf9e20 = L.marker(
+                [-2.0077145645272667, 132.95098951937968],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_06af1e5157060f4480b127cf496695c5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d9346d47c5d5b7216af95fed5c53b866 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c7d9b45fbc8a7b6a30f27eb556cc1dec = $(`<div id="html_c7d9b45fbc8a7b6a30f27eb556cc1dec" style="width: 100.0%; height: 100.0%;"><strong>Papua Barat</strong></div>`)[0];
+                popup_d9346d47c5d5b7216af95fed5c53b866.setContent(html_c7d9b45fbc8a7b6a30f27eb556cc1dec);
+            
+        
+
+        marker_dead85e2c336d3a18e82c7dc14cf9e20.bindPopup(popup_d9346d47c5d5b7216af95fed5c53b866)
+        ;
+
+        
+    
+    
+            marker_dead85e2c336d3a18e82c7dc14cf9e20.bindTooltip(
+                `<div>
+                     Papua Barat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dead85e2c336d3a18e82c7dc14cf9e20.setIcon(icon_06af1e5157060f4480b127cf496695c5);
+            
+    
+            var marker_01e2f56a1d2b37cad5b3464d7eb7c4ac = L.marker(
+                [-0.9893406350520555, 121.21803138557406],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_9dbeeda4b3188ba44a08f4fe74bba1af = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d7c4e02b4261f7445e049d43f91b73d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0c8b8c432cfe13e024faf976cd4361e8 = $(`<div id="html_0c8b8c432cfe13e024faf976cd4361e8" style="width: 100.0%; height: 100.0%;"><strong>Sulawesi Tengah</strong></div>`)[0];
+                popup_0d7c4e02b4261f7445e049d43f91b73d.setContent(html_0c8b8c432cfe13e024faf976cd4361e8);
+            
+        
+
+        marker_01e2f56a1d2b37cad5b3464d7eb7c4ac.bindPopup(popup_0d7c4e02b4261f7445e049d43f91b73d)
+        ;
+
+        
+    
+    
+            marker_01e2f56a1d2b37cad5b3464d7eb7c4ac.bindTooltip(
+                `<div>
+                     Sulawesi Tengah
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_01e2f56a1d2b37cad5b3464d7eb7c4ac.setIcon(icon_9dbeeda4b3188ba44a08f4fe74bba1af);
+            
+    
+            var marker_4268188efd343e0a723396ee4bc90a7d = L.marker(
+                [0.2204620759510644, 127.5405033759266],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_1156b5a1483d342b1e0e5d9cdce9f290 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_98b96e21401954b21ff4ee5d97e252e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c0fd477e0798c8e3687ffba25a83909 = $(`<div id="html_8c0fd477e0798c8e3687ffba25a83909" style="width: 100.0%; height: 100.0%;"><strong>Maluku Utara</strong></div>`)[0];
+                popup_98b96e21401954b21ff4ee5d97e252e2.setContent(html_8c0fd477e0798c8e3687ffba25a83909);
+            
+        
+
+        marker_4268188efd343e0a723396ee4bc90a7d.bindPopup(popup_98b96e21401954b21ff4ee5d97e252e2)
+        ;
+
+        
+    
+    
+            marker_4268188efd343e0a723396ee4bc90a7d.bindTooltip(
+                `<div>
+                     Maluku Utara
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4268188efd343e0a723396ee4bc90a7d.setIcon(icon_1156b5a1483d342b1e0e5d9cdce9f290);
+            
+    
+            var marker_051dc751c38a429a5aab89460208b4b0 = L.marker(
+                [1.5440531290776771, 105.53171853524704],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_a39cd63d239613decc6c9ede18bcc3d9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3eb1559e4f34ce22c76e72c1706df719 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_76cd347c318b95e6a5ea7b56d076a12b = $(`<div id="html_76cd347c318b95e6a5ea7b56d076a12b" style="width: 100.0%; height: 100.0%;"><strong>Kepulauan Riau</strong></div>`)[0];
+                popup_3eb1559e4f34ce22c76e72c1706df719.setContent(html_76cd347c318b95e6a5ea7b56d076a12b);
+            
+        
+
+        marker_051dc751c38a429a5aab89460208b4b0.bindPopup(popup_3eb1559e4f34ce22c76e72c1706df719)
+        ;
+
+        
+    
+    
+            marker_051dc751c38a429a5aab89460208b4b0.bindTooltip(
+                `<div>
+                     Kepulauan Riau
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_051dc751c38a429a5aab89460208b4b0.setIcon(icon_a39cd63d239613decc6c9ede18bcc3d9);
+            
+    
+            var marker_20fd24c81ff6e164c122b997a25c9944 = L.marker(
+                [0.5079431089062127, 101.80129119015956],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_0790f82231c81ba09661845b1d542a14 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_378040c45d2a7ceb99785fe0077938ca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7987371877287ade19626194e3b99fa4 = $(`<div id="html_7987371877287ade19626194e3b99fa4" style="width: 100.0%; height: 100.0%;"><strong>Riau</strong></div>`)[0];
+                popup_378040c45d2a7ceb99785fe0077938ca.setContent(html_7987371877287ade19626194e3b99fa4);
+            
+        
+
+        marker_20fd24c81ff6e164c122b997a25c9944.bindPopup(popup_378040c45d2a7ceb99785fe0077938ca)
+        ;
+
+        
+    
+    
+            marker_20fd24c81ff6e164c122b997a25c9944.bindTooltip(
+                `<div>
+                     Riau
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_20fd24c81ff6e164c122b997a25c9944.setIcon(icon_0790f82231c81ba09661845b1d542a14);
+            
+    
+            var marker_dd52d66c12d8a09889c8aac1b996451a = L.marker(
+                [0.6868473160527732, 122.3635335930451],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_79b962a8ab4d8e9bea2fd7f1f1b3a657 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2961beb5df841fdb172e26fd75a36e97 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4b0663af569612fedff4cdc485a7c4f3 = $(`<div id="html_4b0663af569612fedff4cdc485a7c4f3" style="width: 100.0%; height: 100.0%;"><strong>Gorontalo</strong></div>`)[0];
+                popup_2961beb5df841fdb172e26fd75a36e97.setContent(html_4b0663af569612fedff4cdc485a7c4f3);
+            
+        
+
+        marker_dd52d66c12d8a09889c8aac1b996451a.bindPopup(popup_2961beb5df841fdb172e26fd75a36e97)
+        ;
+
+        
+    
+    
+            marker_dd52d66c12d8a09889c8aac1b996451a.bindTooltip(
+                `<div>
+                     Gorontalo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd52d66c12d8a09889c8aac1b996451a.setIcon(icon_79b962a8ab4d8e9bea2fd7f1f1b3a657);
+            
+    
+            var marker_cc22a52babb4385025410619d7bf0ba2 = L.marker(
+                [1.2120455106714312, 124.49137990817351],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_4c72d1655b3b7b93d29d1caa35e02dad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47461fde9dfe72ec550f6896385997b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_376ffa24e0e0d5b977b10ab2de0b0001 = $(`<div id="html_376ffa24e0e0d5b977b10ab2de0b0001" style="width: 100.0%; height: 100.0%;"><strong>Sulawesi Utara</strong></div>`)[0];
+                popup_47461fde9dfe72ec550f6896385997b2.setContent(html_376ffa24e0e0d5b977b10ab2de0b0001);
+            
+        
+
+        marker_cc22a52babb4385025410619d7bf0ba2.bindPopup(popup_47461fde9dfe72ec550f6896385997b2)
+        ;
+
+        
+    
+    
+            marker_cc22a52babb4385025410619d7bf0ba2.bindTooltip(
+                `<div>
+                     Sulawesi Utara
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cc22a52babb4385025410619d7bf0ba2.setIcon(icon_4c72d1655b3b7b93d29d1caa35e02dad);
+            
+    
+            var marker_785f74063cfac8d12c4ba1506f0e848c = L.marker(
+                [-2.45975115329022, 119.34425692039423],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_47a24d1e7cbd9987ca6dc0797bfdd77a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e8c114256bdf79cde151a123db0b5e2d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_64dad7e2b96c93bc8347b8e6fcd1fcb3 = $(`<div id="html_64dad7e2b96c93bc8347b8e6fcd1fcb3" style="width: 100.0%; height: 100.0%;"><strong>Sulawesi Barat</strong></div>`)[0];
+                popup_e8c114256bdf79cde151a123db0b5e2d.setContent(html_64dad7e2b96c93bc8347b8e6fcd1fcb3);
+            
+        
+
+        marker_785f74063cfac8d12c4ba1506f0e848c.bindPopup(popup_e8c114256bdf79cde151a123db0b5e2d)
+        ;
+
+        
+    
+    
+            marker_785f74063cfac8d12c4ba1506f0e848c.bindTooltip(
+                `<div>
+                     Sulawesi Barat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_785f74063cfac8d12c4ba1506f0e848c.setIcon(icon_47a24d1e7cbd9987ca6dc0797bfdd77a);
+            
+    
+            var marker_52b203d3caa0007a001420c4ed9ef2a4 = L.marker(
+                [-1.6928958690888785, 102.75157555309255],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_1c6f818cabbe8204b1893bb5adcf44d7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_242ccd847954a827451932e23f4aa20b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_238d24006b2a0af32aac7ad1ff2e4d4e = $(`<div id="html_238d24006b2a0af32aac7ad1ff2e4d4e" style="width: 100.0%; height: 100.0%;"><strong>Jambi</strong></div>`)[0];
+                popup_242ccd847954a827451932e23f4aa20b.setContent(html_238d24006b2a0af32aac7ad1ff2e4d4e);
+            
+        
+
+        marker_52b203d3caa0007a001420c4ed9ef2a4.bindPopup(popup_242ccd847954a827451932e23f4aa20b)
+        ;
+
+        
+    
+    
+            marker_52b203d3caa0007a001420c4ed9ef2a4.bindTooltip(
+                `<div>
+                     Jambi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_52b203d3caa0007a001420c4ed9ef2a4.setIcon(icon_1c6f818cabbe8204b1893bb5adcf44d7);
+            
+    
+            var marker_295ec50da1991ffb2c0179aa0b9d6463 = L.marker(
+                [-3.230877768938295, 104.18712454352213],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_55a6726e018fb52ad5a628073c0b01fc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_58676c3f376b62bd8d03d84d58bed395 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d9173602a0cfb49b73257d216b8767c = $(`<div id="html_6d9173602a0cfb49b73257d216b8767c" style="width: 100.0%; height: 100.0%;"><strong>Sumatera Selatan</strong></div>`)[0];
+                popup_58676c3f376b62bd8d03d84d58bed395.setContent(html_6d9173602a0cfb49b73257d216b8767c);
+            
+        
+
+        marker_295ec50da1991ffb2c0179aa0b9d6463.bindPopup(popup_58676c3f376b62bd8d03d84d58bed395)
+        ;
+
+        
+    
+    
+            marker_295ec50da1991ffb2c0179aa0b9d6463.bindTooltip(
+                `<div>
+                     Sumatera Selatan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_295ec50da1991ffb2c0179aa0b9d6463.setIcon(icon_55a6726e018fb52ad5a628073c0b01fc);
+            
+    
+            var marker_dd76f91b65bdc35288201d20c3b7fb43 = L.marker(
+                [-4.919332158621609, 105.03036086858752],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_de5ebf380d1cff673baa5e369397bc96 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f469e9d4a7393c2422ca72ba7519c9e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3969061cd2f4bd7e4736adc7efb738a8 = $(`<div id="html_3969061cd2f4bd7e4736adc7efb738a8" style="width: 100.0%; height: 100.0%;"><strong>Lampung</strong></div>`)[0];
+                popup_f469e9d4a7393c2422ca72ba7519c9e9.setContent(html_3969061cd2f4bd7e4736adc7efb738a8);
+            
+        
+
+        marker_dd76f91b65bdc35288201d20c3b7fb43.bindPopup(popup_f469e9d4a7393c2422ca72ba7519c9e9)
+        ;
+
+        
+    
+    
+            marker_dd76f91b65bdc35288201d20c3b7fb43.bindTooltip(
+                `<div>
+                     Lampung
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd76f91b65bdc35288201d20c3b7fb43.setIcon(icon_de5ebf380d1cff673baa5e369397bc96);
+            
+    
+            var marker_ef3e2f18d5ae0bb3a26f30c0ad2d5b1a = L.marker(
+                [-3.5749005518611416, 102.37556934935039],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_8b1338870426175da666dbe08dc08480 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b8a9a1b70d9d02fbc83754909820a872 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a01f5e87e47956b1cd7ee283b85d104 = $(`<div id="html_8a01f5e87e47956b1cd7ee283b85d104" style="width: 100.0%; height: 100.0%;"><strong>Bengkulu</strong></div>`)[0];
+                popup_b8a9a1b70d9d02fbc83754909820a872.setContent(html_8a01f5e87e47956b1cd7ee283b85d104);
+            
+        
+
+        marker_ef3e2f18d5ae0bb3a26f30c0ad2d5b1a.bindPopup(popup_b8a9a1b70d9d02fbc83754909820a872)
+        ;
+
+        
+    
+    
+            marker_ef3e2f18d5ae0bb3a26f30c0ad2d5b1a.bindTooltip(
+                `<div>
+                     Bengkulu
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ef3e2f18d5ae0bb3a26f30c0ad2d5b1a.setIcon(icon_8b1338870426175da666dbe08dc08480);
+            
+    
+            var marker_29fbd6d1dcb659631f10fe04ecf74693 = L.marker(
+                [-0.8280511206116553, 100.4384963353698],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_9cc41ae57d2935d698da5043c5ce0409 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2df3ddccdbd53598df243c1bcba149d1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cb4caa72d3398165731fc202ab3ab223 = $(`<div id="html_cb4caa72d3398165731fc202ab3ab223" style="width: 100.0%; height: 100.0%;"><strong>Sumatera Barat</strong></div>`)[0];
+                popup_2df3ddccdbd53598df243c1bcba149d1.setContent(html_cb4caa72d3398165731fc202ab3ab223);
+            
+        
+
+        marker_29fbd6d1dcb659631f10fe04ecf74693.bindPopup(popup_2df3ddccdbd53598df243c1bcba149d1)
+        ;
+
+        
+    
+    
+            marker_29fbd6d1dcb659631f10fe04ecf74693.bindTooltip(
+                `<div>
+                     Sumatera Barat
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_29fbd6d1dcb659631f10fe04ecf74693.setIcon(icon_9cc41ae57d2935d698da5043c5ce0409);
+            
+    
+            var marker_de4e2a131e00f38385f26334526be0b7 = L.marker(
+                [2.2084654259048393, 99.04064119806766],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_c6739d364eb8434d04bae0d10fb14e2b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_caaf272981fcb5ae5cca2892429e5f87 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bea1aeccdc2da5aa6af5af15218d1d3d = $(`<div id="html_bea1aeccdc2da5aa6af5af15218d1d3d" style="width: 100.0%; height: 100.0%;"><strong>Sumatera Utara</strong></div>`)[0];
+                popup_caaf272981fcb5ae5cca2892429e5f87.setContent(html_bea1aeccdc2da5aa6af5af15218d1d3d);
+            
+        
+
+        marker_de4e2a131e00f38385f26334526be0b7.bindPopup(popup_caaf272981fcb5ae5cca2892429e5f87)
+        ;
+
+        
+    
+    
+            marker_de4e2a131e00f38385f26334526be0b7.bindTooltip(
+                `<div>
+                     Sumatera Utara
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_de4e2a131e00f38385f26334526be0b7.setIcon(icon_c6739d364eb8434d04bae0d10fb14e2b);
+            
+    
+            var marker_b46641f9c2b91503331994b215d5edb6 = L.marker(
+                [4.255201116384146, 96.89564085505569],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_ac86d20eb7e21c310257f4dd53b6acd2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fdf5184884a5ae1427e3141fcb47c845 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8fcec76a017a6e87ff283b885749b7c1 = $(`<div id="html_8fcec76a017a6e87ff283b885749b7c1" style="width: 100.0%; height: 100.0%;"><strong>Aceh</strong></div>`)[0];
+                popup_fdf5184884a5ae1427e3141fcb47c845.setContent(html_8fcec76a017a6e87ff283b885749b7c1);
+            
+        
+
+        marker_b46641f9c2b91503331994b215d5edb6.bindPopup(popup_fdf5184884a5ae1427e3141fcb47c845)
+        ;
+
+        
+    
+    
+            marker_b46641f9c2b91503331994b215d5edb6.bindTooltip(
+                `<div>
+                     Aceh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b46641f9c2b91503331994b215d5edb6.setIcon(icon_ac86d20eb7e21c310257f4dd53b6acd2);
+            
+    
+            var marker_2a07a4ef0eea3acb732d8610d8a8f005 = L.marker(
+                [-1.5967033737316645, 113.4285938152691],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_77ba51d5e3f0e5e947c2b0da29d103cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_20975f4aa3c800709de6b9443309eb06 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3a9dc1b1c21b88cb3b39d674998be6e7 = $(`<div id="html_3a9dc1b1c21b88cb3b39d674998be6e7" style="width: 100.0%; height: 100.0%;"><strong>Kalimantan Tengah</strong></div>`)[0];
+                popup_20975f4aa3c800709de6b9443309eb06.setContent(html_3a9dc1b1c21b88cb3b39d674998be6e7);
+            
+        
+
+        marker_2a07a4ef0eea3acb732d8610d8a8f005.bindPopup(popup_20975f4aa3c800709de6b9443309eb06)
+        ;
+
+        
+    
+    
+            marker_2a07a4ef0eea3acb732d8610d8a8f005.bindTooltip(
+                `<div>
+                     Kalimantan Tengah
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2a07a4ef0eea3acb732d8610d8a8f005.setIcon(icon_77ba51d5e3f0e5e947c2b0da29d103cf);
+            
+    
+            var marker_f7a95e39717b8155bd7ff64aa0d4b72c = L.marker(
+                [-2.9754853202739615, 115.43116623873959],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_40af2bb61431b8d4c3496f68a8c9f132 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_73144f1540ee3c4c17044542acaa4a9b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c0d16626285500d652f374bad94616c7 = $(`<div id="html_c0d16626285500d652f374bad94616c7" style="width: 100.0%; height: 100.0%;"><strong>Kalimantan Selatan</strong></div>`)[0];
+                popup_73144f1540ee3c4c17044542acaa4a9b.setContent(html_c0d16626285500d652f374bad94616c7);
+            
+        
+
+        marker_f7a95e39717b8155bd7ff64aa0d4b72c.bindPopup(popup_73144f1540ee3c4c17044542acaa4a9b)
+        ;
+
+        
+    
+    
+            marker_f7a95e39717b8155bd7ff64aa0d4b72c.bindTooltip(
+                `<div>
+                     Kalimantan Selatan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f7a95e39717b8155bd7ff64aa0d4b72c.setIcon(icon_40af2bb61431b8d4c3496f68a8c9f132);
+            
+    
+            var marker_429187feea4c45afde12f3a60406cc5c = L.marker(
+                [-8.363241492621183, 115.14115805218195],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_d2e4c6dab015e9dd8bbb8b35cc77787f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f55805ce3af41522da6230601eae565b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0d1756a7f0e0aef062a42dfe7b8b985c = $(`<div id="html_0d1756a7f0e0aef062a42dfe7b8b985c" style="width: 100.0%; height: 100.0%;"><strong>Bali</strong></div>`)[0];
+                popup_f55805ce3af41522da6230601eae565b.setContent(html_0d1756a7f0e0aef062a42dfe7b8b985c);
+            
+        
+
+        marker_429187feea4c45afde12f3a60406cc5c.bindPopup(popup_f55805ce3af41522da6230601eae565b)
+        ;
+
+        
+    
+    
+            marker_429187feea4c45afde12f3a60406cc5c.bindTooltip(
+                `<div>
+                     Bali
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_429187feea4c45afde12f3a60406cc5c.setIcon(icon_d2e4c6dab015e9dd8bbb8b35cc77787f);
+            
+    
+            var marker_015b7dee91d65979d560191357ef8eb9 = L.marker(
+                [-2.4331047030238406, 106.5353777759838],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_e3fed3d4ecf8d13d119453231dc92b88 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2e4579e0a5ecd82d8db9f53da76c3d80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_91fe32ba8c52b740ee533b69e4a07400 = $(`<div id="html_91fe32ba8c52b740ee533b69e4a07400" style="width: 100.0%; height: 100.0%;"><strong>Bangka-Belitung</strong></div>`)[0];
+                popup_2e4579e0a5ecd82d8db9f53da76c3d80.setContent(html_91fe32ba8c52b740ee533b69e4a07400);
+            
+        
+
+        marker_015b7dee91d65979d560191357ef8eb9.bindPopup(popup_2e4579e0a5ecd82d8db9f53da76c3d80)
+        ;
+
+        
+    
+    
+            marker_015b7dee91d65979d560191357ef8eb9.bindTooltip(
+                `<div>
+                     Bangka-Belitung
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_015b7dee91d65979d560191357ef8eb9.setIcon(icon_e3fed3d4ecf8d13d119453231dc92b88);
+            
+    
+            var marker_309a00f666daf7942560f6d329c2c859 = L.marker(
+                [2.916, 117.361],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_2bd440d3ac6aa9a7168c1af91100d53a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_927133e97d4612761f22b38b98430844 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_babfce9155137f9db563a66bbac4dd90 = $(`<div id="html_babfce9155137f9db563a66bbac4dd90" style="width: 100.0%; height: 100.0%;"><strong>Kalimantan Utara</strong></div>`)[0];
+                popup_927133e97d4612761f22b38b98430844.setContent(html_babfce9155137f9db563a66bbac4dd90);
+            
+        
+
+        marker_309a00f666daf7942560f6d329c2c859.bindPopup(popup_927133e97d4612761f22b38b98430844)
+        ;
+
+        
+    
+    
+            marker_309a00f666daf7942560f6d329c2c859.bindTooltip(
+                `<div>
+                     Kalimantan Utara
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_309a00f666daf7942560f6d329c2c859.setIcon(icon_2bd440d3ac6aa9a7168c1af91100d53a);
+            
+    
+            var marker_5f2a473c677d108c6320ba2ea8485a10 = L.marker(
+                [-8.499, 140.402],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_6cfbff9ad1c082475d004146b27e76a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d9b0efed245d3131d1705e3e4ba48129 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e557db063fb4109b745ea7598cfb15ab = $(`<div id="html_e557db063fb4109b745ea7598cfb15ab" style="width: 100.0%; height: 100.0%;"><strong>Papua Selatan</strong></div>`)[0];
+                popup_d9b0efed245d3131d1705e3e4ba48129.setContent(html_e557db063fb4109b745ea7598cfb15ab);
+            
+        
+
+        marker_5f2a473c677d108c6320ba2ea8485a10.bindPopup(popup_d9b0efed245d3131d1705e3e4ba48129)
+        ;
+
+        
+    
+    
+            marker_5f2a473c677d108c6320ba2ea8485a10.bindTooltip(
+                `<div>
+                     Papua Selatan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5f2a473c677d108c6320ba2ea8485a10.setIcon(icon_6cfbff9ad1c082475d004146b27e76a4);
+            
+    
+            var marker_718bbf2c7e2810005f5a3a1b5b66bf68 = L.marker(
+                [-3.367, 135.493],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_b6ed25dd46b08865dc1bde7c75882d10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd83e1450ad0a58fb6528602b43e6271 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca8de52657f368ca6878729c6d2c83c0 = $(`<div id="html_ca8de52657f368ca6878729c6d2c83c0" style="width: 100.0%; height: 100.0%;"><strong>Papua Tengah</strong></div>`)[0];
+                popup_cd83e1450ad0a58fb6528602b43e6271.setContent(html_ca8de52657f368ca6878729c6d2c83c0);
+            
+        
+
+        marker_718bbf2c7e2810005f5a3a1b5b66bf68.bindPopup(popup_cd83e1450ad0a58fb6528602b43e6271)
+        ;
+
+        
+    
+    
+            marker_718bbf2c7e2810005f5a3a1b5b66bf68.bindTooltip(
+                `<div>
+                     Papua Tengah
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_718bbf2c7e2810005f5a3a1b5b66bf68.setIcon(icon_b6ed25dd46b08865dc1bde7c75882d10);
+            
+    
+            var marker_6bdfde6af3b3adb5031c678f5d34ad71 = L.marker(
+                [-4.148, 138.948],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_cf0812a954e3ad9605df2ff809afd487 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b62f9add4f7789def5ff089a324d698e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ce2bfa8991a5a8f0a813c54c63e64c74 = $(`<div id="html_ce2bfa8991a5a8f0a813c54c63e64c74" style="width: 100.0%; height: 100.0%;"><strong>Papua Pegunungan</strong></div>`)[0];
+                popup_b62f9add4f7789def5ff089a324d698e.setContent(html_ce2bfa8991a5a8f0a813c54c63e64c74);
+            
+        
+
+        marker_6bdfde6af3b3adb5031c678f5d34ad71.bindPopup(popup_b62f9add4f7789def5ff089a324d698e)
+        ;
+
+        
+    
+    
+            marker_6bdfde6af3b3adb5031c678f5d34ad71.bindTooltip(
+                `<div>
+                     Papua Pegunungan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6bdfde6af3b3adb5031c678f5d34ad71.setIcon(icon_cf0812a954e3ad9605df2ff809afd487);
+            
+    
+            var marker_575e623b1ecfb4b29580d3888b7c1ca2 = L.marker(
+                [-0.882, 131.258],
+                {
+}
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+    
+            var icon_5ea9e90a4341f7a9fb74bebe0fd77053 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c0eb0b8f051e6bcd10b89192545e19b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31d77a0c6ee3c03c5ca822c61389a962 = $(`<div id="html_31d77a0c6ee3c03c5ca822c61389a962" style="width: 100.0%; height: 100.0%;"><strong>Papua Barat Daya</strong></div>`)[0];
+                popup_1c0eb0b8f051e6bcd10b89192545e19b.setContent(html_31d77a0c6ee3c03c5ca822c61389a962);
+            
+        
+
+        marker_575e623b1ecfb4b29580d3888b7c1ca2.bindPopup(popup_1c0eb0b8f051e6bcd10b89192545e19b)
+        ;
+
+        
+    
+    
+            marker_575e623b1ecfb4b29580d3888b7c1ca2.bindTooltip(
+                `<div>
+                     Papua Barat Daya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_575e623b1ecfb4b29580d3888b7c1ca2.setIcon(icon_5ea9e90a4341f7a9fb74bebe0fd77053);
+            
+    
+            L.Control.TimeDimensionCustom = L.Control.TimeDimension.extend({
+                _getDisplayDateFormat: function(date){
+                    var newdate = new moment(date);
+                    console.log(newdate)
+                    return newdate.format("YYYY-MM-DD HH:mm:ss");
+                }
+            });
+            map_2f79d94235c0c90fb1969cf0ff361ec5.timeDimension = L.timeDimension(
+                {
+                    period: "PT1H",
+                }
+            );
+            var timeDimensionControl = new L.Control.TimeDimensionCustom(
+                {
+  "position": "bottomleft",
+  "minSpeed": 0.1,
+  "maxSpeed": 2,
+  "autoPlay": false,
+  "loopButton": true,
+  "timeSliderDragUpdate": true,
+  "speedSlider": true,
+  "playerOptions": {
+  "transitionTime": 200,
+  "loop": false,
+  "startOver": true,
+},
+}
+            );
+            map_2f79d94235c0c90fb1969cf0ff361ec5.addControl(this.timeDimensionControl);
+
+            var geoJsonLayer = L.geoJson({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[138.65164524996223, -4.64056019171701], [138.948, -4.148]]}, "properties": {"times": ["2025-01-01T00:00:00Z", "2025-01-01T00:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Papua - Papua Pegunungan"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[110.21106245345051, -7.270040304574821], [110.45773333516406, -7.9081076818113765]]}, "properties": {"times": ["2025-01-01T01:00:00Z", "2025-01-01T01:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Jawa Tengah - Yogyakarta"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[106.85000742656801, -6.2092097497832714], [106.11427042056637, -6.4527747142159075]]}, "properties": {"times": ["2025-01-01T02:00:00Z", "2025-01-01T02:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Jakarta Raya - Banten"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[107.61031064977414, -6.9230683180489505], [106.85000742656801, -6.2092097497832714]]}, "properties": {"times": ["2025-01-01T03:00:00Z", "2025-01-01T03:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Jawa Barat - Jakarta Raya"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[120.1778352640059, -3.661945786029538], [119.34425692039423, -2.45975115329022]]}, "properties": {"times": ["2025-01-01T04:00:00Z", "2025-01-01T04:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sulawesi Selatan - Sulawesi Barat"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[104.18712454352213, -3.230877768938295], [102.37556934935039, -3.5749005518611416]]}, "properties": {"times": ["2025-01-01T05:00:00Z", "2025-01-01T05:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sumatera Selatan - Bengkulu"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[116.38401489149791, 1.354062287866734], [117.361, 2.916]]}, "properties": {"times": ["2025-01-01T06:00:00Z", "2025-01-01T06:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Kalimantan Timur - Kalimantan Utara"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[106.11427042056637, -6.4527747142159075], [105.03036086858752, -4.919332158621609]]}, "properties": {"times": ["2025-01-01T07:00:00Z", "2025-01-01T07:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Banten - Lampung"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[104.18712454352213, -3.230877768938295], [105.03036086858752, -4.919332158621609]]}, "properties": {"times": ["2025-01-01T08:00:00Z", "2025-01-01T08:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sumatera Selatan - Lampung"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[101.80129119015956, 0.5079431089062127], [100.4384963353698, -0.8280511206116553]]}, "properties": {"times": ["2025-01-01T09:00:00Z", "2025-01-01T09:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Riau - Sumatera Barat"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[102.75157555309255, -1.6928958690888785], [102.37556934935039, -3.5749005518611416]]}, "properties": {"times": ["2025-01-01T10:00:00Z", "2025-01-01T10:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Jambi - Bengkulu"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[120.1778352640059, -3.661945786029538], [122.07771740626224, -4.128536051936185]]}, "properties": {"times": ["2025-01-01T11:00:00Z", "2025-01-01T11:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sulawesi Selatan - Sulawesi Tenggara"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[121.21803138557406, -0.9893406350520555], [122.3635335930451, 0.6868473160527732]]}, "properties": {"times": ["2025-01-01T12:00:00Z", "2025-01-01T12:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sulawesi Tengah - Gorontalo"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[132.95098951937968, -2.0077145645272667], [131.258, -0.882]]}, "properties": {"times": ["2025-01-01T13:00:00Z", "2025-01-01T13:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Papua Barat - Papua Barat Daya"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[122.3635335930451, 0.6868473160527732], [124.49137990817351, 1.2120455106714312]]}, "properties": {"times": ["2025-01-01T14:00:00Z", "2025-01-01T14:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Gorontalo - Sulawesi Utara"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[112.73750774274768, -7.729981439366027], [110.45773333516406, -7.9081076818113765]]}, "properties": {"times": ["2025-01-01T15:00:00Z", "2025-01-01T15:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Jawa Timur - Yogyakarta"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[117.50027747747866, -8.606958453999232], [115.14115805218195, -8.363241492621183]]}, "properties": {"times": ["2025-01-01T16:00:00Z", "2025-01-01T16:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Nusa Tenggara Barat - Bali"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[121.21803138557406, -0.9893406350520555], [119.34425692039423, -2.45975115329022]]}, "properties": {"times": ["2025-01-01T17:00:00Z", "2025-01-01T17:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sulawesi Tengah - Sulawesi Barat"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[101.80129119015956, 0.5079431089062127], [102.75157555309255, -1.6928958690888785]]}, "properties": {"times": ["2025-01-01T18:00:00Z", "2025-01-01T18:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Riau - Jambi"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[113.4285938152691, -1.5967033737316645], [115.43116623873959, -2.9754853202739615]]}, "properties": {"times": ["2025-01-01T19:00:00Z", "2025-01-01T19:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Kalimantan Tengah - Kalimantan Selatan"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[112.73750774274768, -7.729981439366027], [115.14115805218195, -8.363241492621183]]}, "properties": {"times": ["2025-01-01T20:00:00Z", "2025-01-01T20:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Jawa Timur - Bali"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[104.18712454352213, -3.230877768938295], [106.5353777759838, -2.4331047030238406]]}, "properties": {"times": ["2025-01-01T21:00:00Z", "2025-01-01T21:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sumatera Selatan - Bangka-Belitung"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[110.21106245345051, -7.270040304574821], [107.61031064977414, -6.9230683180489505]]}, "properties": {"times": ["2025-01-01T22:00:00Z", "2025-01-01T22:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Jawa Tengah - Jawa Barat"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[111.15448220911144, -0.09496007217867572], [113.4285938152691, -1.5967033737316645]]}, "properties": {"times": ["2025-01-01T23:00:00Z", "2025-01-01T23:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Kalimantan Barat - Kalimantan Tengah"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[132.95098951937968, -2.0077145645272667], [135.493, -3.367]]}, "properties": {"times": ["2025-01-02T00:00:00Z", "2025-01-02T00:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Papua Barat - Papua Tengah"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[99.04064119806766, 2.2084654259048393], [96.89564085505569, 4.255201116384146]]}, "properties": {"times": ["2025-01-02T01:00:00Z", "2025-01-02T01:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sumatera Utara - Aceh"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[127.5405033759266, 0.2204620759510644], [124.49137990817351, 1.2120455106714312]]}, "properties": {"times": ["2025-01-02T02:00:00Z", "2025-01-02T02:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Maluku Utara - Sulawesi Utara"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[101.80129119015956, 0.5079431089062127], [99.04064119806766, 2.2084654259048393]]}, "properties": {"times": ["2025-01-02T03:00:00Z", "2025-01-02T03:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Riau - Sumatera Utara"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[138.65164524996223, -4.64056019171701], [135.493, -3.367]]}, "properties": {"times": ["2025-01-02T04:00:00Z", "2025-01-02T04:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Papua - Papua Tengah"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[105.53171853524704, 1.5440531290776771], [101.80129119015956, 0.5079431089062127]]}, "properties": {"times": ["2025-01-02T05:00:00Z", "2025-01-02T05:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Kepulauan Riau - Riau"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[127.5405033759266, 0.2204620759510644], [131.258, -0.882]]}, "properties": {"times": ["2025-01-02T06:00:00Z", "2025-01-02T06:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Maluku Utara - Papua Barat Daya"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[119.34425692039423, -2.45975115329022], [115.43116623873959, -2.9754853202739615]]}, "properties": {"times": ["2025-01-02T07:00:00Z", "2025-01-02T07:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Sulawesi Barat - Kalimantan Selatan"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[129.75575836024476, -4.6940437525958565], [131.258, -0.882]]}, "properties": {"times": ["2025-01-02T08:00:00Z", "2025-01-02T08:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Maluku - Papua Barat Daya"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[116.38401489149791, 1.354062287866734], [113.4285938152691, -1.5967033737316645]]}, "properties": {"times": ["2025-01-02T09:00:00Z", "2025-01-02T09:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Kalimantan Timur - Kalimantan Tengah"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[138.65164524996223, -4.64056019171701], [140.402, -8.499]]}, "properties": {"times": ["2025-01-02T10:00:00Z", "2025-01-02T10:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Papua - Papua Selatan"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[122.18371185030412, -9.254079190711654], [117.50027747747866, -8.606958453999232]]}, "properties": {"times": ["2025-01-02T11:00:00Z", "2025-01-02T11:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Nusa Tenggara Timur - Nusa Tenggara Barat"}}, {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[122.18371185030412, -9.254079190711654], [122.07771740626224, -4.128536051936185]]}, "properties": {"times": ["2025-01-02T12:00:00Z", "2025-01-02T12:00:00Z"], "style": {"color": "#FF5733", "weight": 3.5}, "popup": "Nusa Tenggara Timur - Sulawesi Tenggara"}}]}, {
+                    pointToLayer: function (feature, latLng) {
+                        if (feature.properties.icon == 'marker') {
+                            if(feature.properties.iconstyle){
+                                return new L.Marker(latLng, {
+                                    icon: L.icon(feature.properties.iconstyle)});
+                            }
+                            //else
+                            return new L.Marker(latLng);
+                        }
+                        if (feature.properties.icon == 'circle') {
+                            if (feature.properties.iconstyle) {
+                                return new L.circleMarker(latLng, feature.properties.iconstyle)
+                                };
+                            //else
+                            return new L.circleMarker(latLng);
+                        }
+                        //else
+
+                        return new L.Marker(latLng);
+                    },
+                    style: function (feature) {
+                        return feature.properties.style;
+                    },
+                    onEachFeature: function(feature, layer) {
+                        if (feature.properties.popup) {
+                        layer.bindPopup(feature.properties.popup);
+                        }
+                        if (feature.properties.tooltip) {
+                        layer.bindTooltip(feature.properties.tooltip);
+                        }
+                    }
+                })
+
+            var timestamped_geo_json_672f03da8d19944db3e99a3ad91acf2b = L.timeDimension.layer.geoJson(
+                geoJsonLayer,
+                {
+                    updateTimeDimension: true,
+                    addlastPoint: true,
+                    duration: undefined,
+                }
+            ).addTo(map_2f79d94235c0c90fb1969cf0ff361ec5);
+        
+</script>
+</html>
