@@ -13,7 +13,7 @@ Proyek ini bertujuan untuk:
 1.  **Clone Repositori**
     Buka terminal atau CMD dan jalankan perintah berikut untuk mengunduh proyek:
     ```bash
-    git clone [https://github.com/xinuzo/Proyek_Matdis](https://github.com/xinuzo/Proyek_Matdis)
+    git clone https://github.com/xinuzo/Proyek_Matdis.git
     ```
     Atau, unduh proyek sebagai file ZIP dan ekstrak.
 
