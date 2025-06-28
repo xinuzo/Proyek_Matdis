@@ -24,9 +24,9 @@ Proyek ini bertujuan untuk:
     ```
 
 3.  **Jalankan Notebook**
-    Buka folder `src`, lalu buka file notebook `.ipynb` menggunakan Jupyter Notebook atau VS Code. Jalankan semua sel kode dari atas ke bawah. \\
-    Berkas Masalah 1: closure.ipynb \\
-    Berkas Masalah 2: MST.ipynb
+    Buka folder `src`, lalu buka file notebook `.ipynb` menggunakan Jupyter Notebook atau VS Code. Jalankan semua sel kode dari atas ke bawah. 
+    - Berkas Masalah 1: closure.ipynb 
+    - Berkas Masalah 2: MST.ipynb
 ---
 
 ## Hasil Program
